@@ -2,16 +2,22 @@
   <div class="row">
     <div class="input-field col l6  s12">
       <i class="mdi-action-account-circle prefix green-text"></i>
-      <input id="firstName" name="firstName" #firstName="ngModel" type="text" class="validate black-text" [(ngModel)]="user.firstName" required>
+      <input id="firstName" name="firstName" #firstName="ngModel" type="text" class="validate black-text" [(ngModel)]="user.firstName"
+        required>
       <label for="firstName" class="gray-text">Prenom</label>
-      <span *ngIf="firstName.invalid &&!firstName.pristine"><font color="red">Entrez le prenom</font></span> 
+      <span *ngIf="firstName.invalid &&!firstName.pristine">
+        <font color="red">Entrez le prenom</font>
+      </span>
     </div>
 
     <div class="input-field col l6  s12">
       <i class="mdi-action-account-circle prefix green-text"></i>
-      <input id="lastName" name="lastName" #lastName="ngModel"  type="text" class="validate black-text" [(ngModel)]="user.lastName" required>
+      <input id="lastName" name="lastName" #lastName="ngModel" type="text" class="validate black-text" [(ngModel)]="user.lastName"
+        required>
       <label for="lastName" class="gray-text">Nom</label>
-      <span *ngIf="lastName.invalid &&!lastName.pristine"><font color="red">Entrez le Nom</font></span> 
+      <span *ngIf="lastName.invalid &&!lastName.pristine">
+        <font color="red">Entrez le Nom</font>
+      </span>
     </div>
 
   </div>
@@ -23,9 +29,11 @@
     </div>
     <div class="input-field col l6  s12">
       <i class="mdi-hardware-phone-android prefix green-text"></i>
-      <input id="phone" name="phone"  #phone="ngModel"  type="text" class="validate black-text" [(ngModel)]="user.phone" required>
+      <input id="phone" name="phone" #phone="ngModel" type="text" class="validate black-text" [(ngModel)]="user.phone" required>
       <label for="phone" class="gray-text">Phone</label>
-      <span *ngIf="phone.invalid &&!phone.pristine"><font color="red">Entrez le Phone</font></span> 
+      <span *ngIf="phone.invalid &&!phone.pristine">
+        <font color="red">Entrez le Phone</font>
+      </span>
     </div>
 
 
@@ -34,19 +42,31 @@
   <div class="row">
     <div class="input-field col l6  s12">
       <i class="mdi-communication-email prefix green-text"></i>
-      <input id="email" name="email" #email="ngModel"  type="email" class="validate black-text" [(ngModel)]="user.email" required email>
+      <input id="email" name="email" #email="ngModel" type="email" class="validate black-text" [(ngModel)]="user.email" required
+        email>
       <label for="email" class="gray-text">Email</label>
-      <span *ngIf="email.invalid && !email.pristine"><font color="red">Entrez le E-mail</font></span> 
+      <span *ngIf="email.invalid && !email.pristine">
+        <font color="red">Entrez le E-mail</font>
+      </span>
     </div>
     <div class="input-field col l6  s12">
       <i class="mdi-communication-chat prefix green-text"></i>
-      <input id="password" name="password"  #password="ngModel" type="password" class="validate black-text" [(ngModel)]="user.password" required>
+      <input id="password" name="password" #password="ngModel" type="password" class="validate black-text" [(ngModel)]="user.password"
+        required>
       <label for="password" class="gray-text">Password</label>
-      <span *ngIf="password.invalid && !password.pristine"><font color="red">Entrez le password</font></span> 
+      <span *ngIf="password.invalid && !password.pristine">
+        <font color="red">Entrez le password</font>
+      </span>
     </div>
   </div>
   <div class="row">
-    <div class="col offset-s7  s12">
+    <div class="col l6  s12">
+      <span *ngIf="user.error!='Success'">
+        <font color="red">{{user.error}}</font>
+      </span>
+    </div>
+
+    <div class="col l6  s12">
       <button class="btn waves-effect waves-light red darken-1" type="submit" [disabled]="!registerForm.form.valid">Incrire
         <i class="mdi-content-send right green-text"></i>
       </button>

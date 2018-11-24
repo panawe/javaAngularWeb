@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Constants } from '../app.constants';
 import { Http, Response, Headers } from '@angular/http';
 import { User } from '../models/User';
+// tslint:disable-next-line:import-blacklist
 import { Observable } from 'rxjs/Rx';
 import { Cookie } from 'ng2-cookies/ng2-cookies';
 
@@ -21,11 +22,23 @@ export class UsersService {
     const toAdd = JSON.stringify(user);
     const actionUrl = Constants.apiServer + '/service/user/register';
     return this.http.post(actionUrl, toAdd, { headers: this.headers })
-    .map((response: Response) => {
-      if (response && response.json()) {
-        return  <User>response.json();
-      }
-    })
+      .map((response: Response) => {
+        if (response && response.json()) {
+          return <User>response.json();
+        }
+      })
+      .catch(this.handleError);
+  }
+
+  public login = (user: User): Observable<User> => {
+    const toAdd = JSON.stringify(user);
+    const actionUrl = Constants.apiServer + '/service/user/login';
+    return this.http.post(actionUrl, toAdd, { headers: this.headers })
+      .map((response: Response) => {
+        if (response && response.json()) {
+          return <User>response.json();
+        }
+      })
       .catch(this.handleError);
   }
 

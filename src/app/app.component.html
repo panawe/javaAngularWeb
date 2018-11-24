@@ -16,36 +16,36 @@
         <ul class="right hide-on-med-and-down">
 
           <li>
-            <a href="/reservations">Reservations</a>
+            <a href="/reservations" *ngIf="user.id>0">Reservations</a>
           </li>
           <li>
-            <a href="/clients">Clients</a>
+            <a href="/clients" *ngIf="user.id>0 && user.role==1">Clients</a>
           </li>
           <li>
-            <a href="/login">Connexion</a>
+            <a href="/login" *ngIf="user.id==0">Connexion</a>
           </li>
           <li>
-            <a href="#" (click)="logout()">Deconnexion</a>
+            <a href="#" (click)="logout()" *ngIf="user.id>0">Deconnexion</a>
           </li>
           <li>
-            <a href="/inscription">Inscription</a>
+            <a href="/inscription" *ngIf="user.id==0">Inscription</a>
           </li>
         </ul>
         <ul id="nav-mobile" class="side-nav">
           <li>
-            <a href="/reservations">Reservations</a>
+            <a href="/reservations" *ngIf="user.id>0">Reservations</a>
           </li>
           <li>
-            <a href="/clients">Clients</a>
+            <a href="/clients" *ngIf="user.id>0 && user.role==1">Clients</a>
           </li>
           <li>
-            <a href="/login">Connexion</a>
+            <a href="/login" *ngIf="user.id==0">Connexion</a>
           </li>
           <li>
-            <a href="#" (click)="logout()">Deconnexion</a>
+            <a href="#" (click)="logout()" *ngIf="user.id>0">Deconnexion</a>
           </li>
           <li>
-            <a href="/inscription">Inscription</a>
+            <a href="/inscription" *ngIf="user.id==0">Inscription</a>
           </li>
         </ul>
         <a href="#" data-activates="nav-mobile" class="button-collapse">
@@ -67,7 +67,7 @@
       <div class="col l6 s12">
 
         <h5 class="white-text">Java Mobile Training</h5>
-
+        <p>{{'Connecte: '||user.firstName||' '||user.lastName}}</p>
       </div>
       <div class="col l6 s12">
         <h5 class="white-text">Softenza Inc.</h5>
