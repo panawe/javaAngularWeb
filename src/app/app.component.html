@@ -41,7 +41,7 @@
           <li>
             <a href="/clients" *ngIf="user.id>0 && user.role==1">Clients</a>
           </li>
-                    <li>
+          <li>
             <a href="/review" *ngIf="user.id>0 && user.role==0">Review</a>
           </li>
           <li>
@@ -73,7 +73,7 @@
       <div class="col l6 s12">
 
         <h5 class="white-text">Java Mobile Training</h5>
-        <p>{{'Connecte: '||user.firstName||' '||user.lastName}}</p>
+        <p>{{user.id>0?'Connecte: '||user.firstName||' '||user.lastName:''}}</p>
       </div>
       <div class="col l6 s12">
         <h5 class="white-text">Softenza Inc.</h5>
@@ -83,3 +83,4 @@
   </div>
 
 </footer>
+
