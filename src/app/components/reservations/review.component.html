@@ -23,7 +23,7 @@
 
 </p-table>
 
-<p-panel header="Feedback" [toggleable]="true">
+<p-panel header="Feedback {{selectedReservation.id>0?' -  Reservation numero: '||selectedReservation.id:''}}" [toggleable]="true">
   <form (ngSubmit)="review()" #reviewForm="ngForm"> 
 
         <div class="row">

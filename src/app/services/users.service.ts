@@ -42,6 +42,13 @@ export class UsersService {
       .catch(this.handleError);
   }
 
+    public getAllClients = (): Observable<User[]> => {
+    const actionUrl = Constants.apiServer + '/service/user/getAllClients';
+    return this.http.get(actionUrl)
+      .map((response: Response) => <User[]>response.json())
+      .catch(this.handleError);
+  }
+
   private handleError(error: Response) {
     console.error(error);
     return Observable.throw(error.json().error || 'Server error');

@@ -28,6 +28,7 @@ export class ReviewComponent implements OnInit {
     this.selectedReservation.nbrRooms = 1;
     this.selectedReservation.user = this.user;
     this.cols = [
+      { field: 'id', header: 'Numero' },
       { field: 'user.firstName', header: 'Prenom' },
       { field: 'user.lastName', header: 'Nom' },
       { field: 'user.phone', header: 'Phone' },
