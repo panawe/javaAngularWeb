@@ -1,0 +1,55 @@
+<h3 class="first">Review</h3>
+<p-table [columns]="cols" [value]="reservations" selectionMode="single" [(selection)]="selectedReservation" dataKey="id"
+  [paginator]="true" [rows]="10">
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th *ngFor="let col of columns">
+        {{col.header}}
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr [pSelectableRow]="rowData">
+      <td *ngFor="let col of columns">
+        <div *ngIf="col.type != 'date'">
+          {{rowData[col.field]}}
+        </div>
+        <div *ngIf="col.type == 'date'">
+          {{rowData[col.field] | date:'dd/MM/yyyy hh:mm'}}
+        </div>
+      </td>
+    </tr>
+  </ng-template>
+
+</p-table>
+
+<p-panel header="Feedback" [toggleable]="true">
+  <form (ngSubmit)="review()" #reviewForm="ngForm"> 
+
+        <div class="row">
+
+          <div class="input-field col s12">
+            <p-rating [(ngModel)]="selectedReservation.rating"  id="rating" name="rating" #rating="ngModel" stars="10"></p-rating> 
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <p-editor [(ngModel)]="selectedReservation.feedback" [style]="{'height':'150px'}" id="feedback" name="feedback" #feedback="ngModel"></p-editor>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col l4  s12">
+            <button class="btn waves-effect waves-light red darken-1" type="submit" [disabled]="!reviewForm.form.valid" (click)="button=1">Sauvegarder
+              <i class="mdi-content-send right green-text"></i>
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <span *ngIf="error!='Success'">
+            <font color="red">{{error}}</font>
+          </span>
+        </div> 
+
+  </form>
+
+</p-panel>
