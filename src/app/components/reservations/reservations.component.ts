@@ -28,9 +28,9 @@ export class ReservationsComponent implements OnInit {
     this.selectedReservation.nbrRooms = 1;
     this.selectedReservation.user = this.user;
     this.cols = [
-      { field: 'user.firstName', header: 'Prenom' },
-      { field: 'user.lastName', header: 'Nom' },
-      { field: 'user.phone', header: 'Phone' },
+      { field: 'userFirstName', header: 'Prenom' },
+      { field: 'userLastName', header: 'Nom' },
+      { field: 'userPhone', header: 'Phone' },
       { field: 'reservationDate', header: 'Date', type: 'date' },
       { field: 'nbrRooms', header: 'Nb. Chambres' },
       { field: 'cost', header: 'Cout' }

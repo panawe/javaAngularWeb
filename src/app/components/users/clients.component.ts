@@ -21,15 +21,15 @@ export class ClientsComponent implements OnInit {
     this.user = JSON.parse(Cookie.get('user'));
     this.selectedUser = new User();
     this.cols = [
-      { field: 'user.firstName', header: 'Prenom' },
-      { field: 'user.lastName', header: 'Nom' },
-      { field: 'user.phone', header: 'Phone' },
+      { field: 'firstName', header: 'Prenom' },
+      { field: 'lastName', header: 'Nom' },
+      { field: 'phone', header: 'Phone' },
       { field: 'email', header: 'E-mail' },
       { field: 'address', header: 'Address' }
     ];
 
     if (this.user != null) {
-      if (this.user.role === 1) {
+      if (this.user.role === 0) {
         // this.getAllReservations();
       } else {
         this.getAllClients();

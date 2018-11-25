@@ -29,9 +29,9 @@ export class ReviewComponent implements OnInit {
     this.selectedReservation.user = this.user;
     this.cols = [
       { field: 'id', header: 'Numero' },
-      { field: 'user.firstName', header: 'Prenom' },
-      { field: 'user.lastName', header: 'Nom' },
-      { field: 'user.phone', header: 'Phone' },
+      { field: 'userFirstName', header: 'Prenom' },
+      { field: 'userLastName', header: 'Nom' },
+      { field: 'userPhone', header: 'Phone' },
       { field: 'reservationDate', header: 'Date', type: 'date' },
       { field: 'nbrRooms', header: 'Nb. Chambres' },
       { field: 'cost', header: 'Cout' }
