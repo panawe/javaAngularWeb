@@ -73,6 +73,7 @@ export class ReservationsComponent implements OnInit {
 
     console.log('Button clicked = ' || this.button);
     if (this.button === 1) {
+      this.selectedReservation.cost = this.unitCost * this.selectedReservation.nbrRooms; 
       this.reservationService.reserver(this.selectedReservation)
         .subscribe(result => {
           this.selectedReservation = result;

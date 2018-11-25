@@ -10,7 +10,7 @@ import { Cookie } from 'ng2-cookies/ng2-cookies';
   styleUrls: ['./users.component.css']
 })
 export class LoginComponent implements OnInit {
-  user: User;
+  user: User = new User();
   constructor(private userService: UsersService, private router: Router) { }
 
   ngOnInit() {
