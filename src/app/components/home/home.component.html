@@ -1,13 +1,31 @@
 <!--Hero-->
-  <div class="section no-pad-bot" id="index-banner">
-    <div class="container">
-      <h1 class="text_h center header cd-headline letters type">
-        <span>I Love </span>
-        <span class="cd-words-wrapper waiting">
-          <b class="is-visible">creating</b>
-          <b>designing</b>
-          <b>developing</b>
-        </span>
-      </h1>
+<div class="section no-pad-bot" id="index-banner">
+  <div class="container">
+    <h1 class="text_h center header cd-headline letters type">
+      <span>I Love </span>
+      <span class="cd-words-wrapper waiting">
+        <b class="is-visible">creating</b>
+        <b>designing</b>
+        <b>developing</b>
+      </span>
+    </h1>
+
+
+    <div class="ui-g">
+      <div class="ui-g-12 ui-md-4 ui-lg-4" *ngFor="let reservation of reservations">
+        <p-panel>
+          <p-header>
+            Rating:
+            <p-rating [ngModel]="reservation.rating" readonly="true" stars="10" [cancel]="false"></p-rating>
+          </p-header>
+          <div [innerHTML]="reservation.feedback"></div>
+          <p-footer>
+            {{reservation.reservationDate|date : 'dd/MM/yyyy'}} 
+            <font color="red">{{' - '+ reservation.user.firstName +' '+reservation.user.lastName}}
+            </font>
+            </p-footer>
+        </p-panel>
+      </div>
     </div>
   </div>
+</div>

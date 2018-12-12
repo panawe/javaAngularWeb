@@ -30,6 +30,12 @@ export class ReservationsService {
       .catch(this.handleError);
   }
 
+  public getReservationsWithFeedback = (): Observable<Reservation[]> => {
+    const actionUrl = Constants.apiServer + '/service/reservation/getReservationsWithFeedback';
+    return this.http.get(actionUrl)
+      .map((response: Response) => <Reservation[]>response.json())
+      .catch(this.handleError);
+  }
   public reserver = (reservation: Reservation): Observable<Reservation> => {
     const toAdd = JSON.stringify(reservation);
     const actionUrl = Constants.apiServer + '/service/reservation/reserver';
@@ -80,10 +86,10 @@ export class ReservationsService {
       .catch(this.handleError);
   }
 
-  public getUnitCost = (): Observable<Number> => {
+  public getUnitCost = (): Observable<number> => {
     const actionUrl = Constants.apiServer + '/service/reservation/getUnitCost';
     return this.http.get(actionUrl)
-      .map((response: Response) => <Number>response.json())
+      .map((response: Response) => <number>response.json())
       .catch(this.handleError);
   }
 

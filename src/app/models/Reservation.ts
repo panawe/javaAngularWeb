@@ -5,8 +5,8 @@ export class Reservation {
     status: Number = 0;
     comment: string;
     feedback: string;
-    nbrRooms: Number;
-    cost: Number;
+    nbrRooms: number;
+    cost: number;
     reservationDate: Date;
     user: User;
     error:string;

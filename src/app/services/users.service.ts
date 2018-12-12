@@ -20,7 +20,9 @@ export class UsersService {
 
   public register = (user: User): Observable<User> => {
     const toAdd = JSON.stringify(user);
+    console.log('Voici mon JSON:'+toAdd);
     const actionUrl = Constants.apiServer + '/service/user/register';
+    console.log('URL du web service: '+actionUrl);
     return this.http.post(actionUrl, toAdd, { headers: this.headers })
       .map((response: Response) => {
         if (response && response.json()) {
